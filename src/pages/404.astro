@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../lib/urls';
+---
+
+<BaseLayout title="Página não encontrada · Edson A Facioli" description="A página que você procura não existe ou foi movida.">
+  <div class="page-head">
+    <p class="eyebrow">404</p>
+    <h1>Essa rota não existe.</h1>
+    <p class="sub">O link pode ter mudado ou sido removido. Você pode voltar ao início ou dar uma olhada no blog.</p>
+  </div>
+  <div class="btns" style="margin-top:32px">
+    <a class="btn main" href={url()}>Voltar ao início</a>
+    <a class="btn" href={url('blog/')}>Ver o blog</a>
+  </div>
+  <a class="back" href={url()}>← Início</a>
+</BaseLayout>

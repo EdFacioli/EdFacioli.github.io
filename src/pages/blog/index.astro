@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { formatDate, readingTime } from '../../lib/format';
+import { url } from '../../lib/urls';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<BaseLayout
+  title="Blog · Edson A Facioli"
+  description="Notas sobre deploy, infraestrutura, Kubernetes e observabilidade — o que aprendo colocando sistemas em produção."
+>
+  <div class="page-head">
+    <p class="eyebrow">~/blog</p>
+    <h1>Notas de produção</h1>
+    <p class="sub">O que aprendo colocando sistemas no ar: pipelines, infraestrutura como código, Kubernetes e observabilidade, sem teoria solta.</p>
+  </div>
+
+  <div class="posts">
+    {posts.map((post) => (
+      <a class="post-card" href={url(`blog/${post.id}/`)}>
+        <h2>{post.data.title}</h2>
+        <p>{post.data.description}</p>
+        <div class="post-meta">
+          <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
+          <span>{readingTime(post.body)} min de leitura</span>
+          {post.data.tags.map((tag) => <span class="tag">#{tag}</span>)}
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <a class="back" href={url()}>← Voltar ao início</a>
+</BaseLayout>
