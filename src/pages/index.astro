@@ -10,13 +10,13 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
 ---
 
 <BaseLayout
-  title="Edson A Facioli · Programador e DevOps"
+  title="Edson Facioli · Programador e DevOps"
   description="Desenvolvedor e engenheiro DevOps. Escrevo as aplicações e construo a infraestrutura e os pipelines que as colocam no ar."
 >
   <div class="hero">
     <div>
       <h1>Código que vai para produção sem susto.</h1>
-      <p class="lead">Sou Edson A Facioli, desenvolvedor e engenheiro DevOps. Escrevo as aplicações e construo a infraestrutura e os pipelines que as colocam no ar, com deploys automáticos, monitoramento e custo sob controle.</p>
+      <p class="lead">Sou Edson Facioli, desenvolvedor e engenheiro DevOps. Escrevo as aplicações e construo a infraestrutura e os pipelines que as colocam no ar, com deploys automáticos, monitoramento e custo sob controle.</p>
       <div class="btns">
         <a class="btn main" href="#contato">Falar comigo</a>
         <a class="btn" href="#projetos">Ver projetos</a>
@@ -47,22 +47,24 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
     <p class="sub">Exemplos de formato. Substitua pelos seus e use números reais.</p>
     <div class="proj">
       <article class="p">
-        <h3>Migração para Kubernetes</h3>
-        <p>Moveu 40 serviços de VMs para um cluster EKS, com deploy contínuo via ArgoCD e rollback automático.</p>
-        <div class="tags">Terraform · EKS · ArgoCD</div>
+        <h3>Nomad +Segurança</h3>
+        <p>Gerenciei cluster Nomad para orquestração de containers e padronizei o deploy de serviços com Nomad Pack, reduzindo a complexidade operacional para o time de desenvolvimento.
+        Implementei single sign-on (SSO) entre Nomad, Vault e LDAP, simplificando autenticação, autorização e gerenciamento de usuários, e unificando múltiplas credenciais em uma só.
+        Aumentei a segurança do processo de deploy ao adicionar uma etapa de análise automática de vulnerabilidades em imagens Docker (Trivy) ao pipeline.</p>
+        <div class="tags">Nomad · Consul · Nomad-pack · Vault · Trivy</div>
         <div class="res"><b>−38%</b>custo de infraestrutura</div>
       </article>
       <article class="p">
         <h3>Pipeline de entrega contínua</h3>
-        <p>Padronizou build, testes e deploy para 12 times, com ambientes de preview por pull request.</p>
-        <div class="tags">GitHub Actions · Docker · Helm</div>
+        <p>Padronizou build, testes e deploy para +10 times, com ambientes de preview por pull request.</p>
+        <div class="tags">Gitlab CI · Docker · Nomad-pack</div>
         <div class="res"><b>6 min</b>do commit à produção</div>
       </article>
       <article class="p">
-        <h3>Plataforma de observabilidade</h3>
-        <p>Reuniu métricas, logs e alertas em um só lugar, com painéis e runbooks por serviço.</p>
-        <div class="tags">Prometheus · Grafana · Loki</div>
-        <div class="res"><b>−70%</b>tempo para detectar incidentes</div>
+        <h3>Migração de JDK e framework web</h3>
+        <p>Fiz parte de uma migração, por 6 meses, de um sistema crítico de escrituração digital (utilizado por mais de 500 pessoas) de uma stack sem suporte e sem atualizações de segurança (JDK6 + RichFaces + JSF 2.1) para JDK8 + PrimeFaces + JSF 2.2, eliminando vulnerabilidades associadas à versão antiga do Java e resultando em um sistema mais rápido e estável.</p>
+        <div class="tags">Java · PrimeFaces</div>
+        <div class="res"><b>70%</b>de padronização das interfaces</div>
       </article>
     </div>
   </section>
