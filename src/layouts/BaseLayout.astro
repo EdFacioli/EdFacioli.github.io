@@ -104,6 +104,17 @@ const isBlog = Astro.url.pathname.includes('/blog');
       window.addEventListener('resize', function () {
         if (window.innerWidth > 820) setOpen(false);
       });
+
+      var stuck = false;
+      function onScroll() {
+        var next = window.scrollY > 4;
+        if (next === stuck) return;
+        stuck = next;
+        header.classList.toggle('scrolled', stuck);
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
     })();
   </script>
 </body>
